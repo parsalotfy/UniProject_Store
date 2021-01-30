@@ -8,7 +8,7 @@ using Store_API.Models;
 
 namespace Store_API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PeopleController : ControllerBase
     {

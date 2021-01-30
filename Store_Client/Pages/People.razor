@@ -1,0 +1,42 @@
+﻿@page "/people"
+@inject HttpClient Http
+@using SharedProject;
+
+<h3>People</h3>
+
+@if (people == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Person person in people)
+            {
+                <tr>
+                    <td>@person.Id</td>
+                    <td>@person.Name</td>
+                    <td>@person.Age</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Person> people;
+
+        protected override async Task OnInitializedAsync()
+        {
+            people = await Http.GetFromJsonAsync<List<Person>>("https://localhost:5001/people");
+        }
+
+}

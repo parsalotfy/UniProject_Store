@@ -25,6 +25,13 @@ namespace Store_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // https://stackoverflow.com/questions/64858434/net5-0-blazor-wasm-cors-client-exception
+            // https://dzone.com/articles/cors-in-net-core-net-core-security-part-vi#:~:text=CORS%20stands%20for%20Cross%2DOrigin,origin%20requests%20while%20rejecting%20others.%22
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                builder.WithOrigins("https://localhost:5004","http://localhost:5003"));
+            });
 
             services.AddControllers();
         }
@@ -40,6 +47,10 @@ namespace Store_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // https://stackoverflow.com/questions/64858434/net5-0-blazor-wasm-cors-client-exception
+            // https://dzone.com/articles/cors-in-net-core-net-core-security-part-vi#:~:text=CORS%20stands%20for%20Cross%2DOrigin,origin%20requests%20while%20rejecting%20others.%22
+            app.UseCors();
 
             app.UseAuthorization();
 

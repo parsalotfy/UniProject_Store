@@ -39,15 +39,18 @@ namespace Store_API
                 app.UseDeveloperExceptionPage();
             }
 
+            /*
             app.UseFileServer(new FileServerOptions()
             {
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
                 RequestPath = "/StaticFiles"
 
-            });
+            });*/
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 

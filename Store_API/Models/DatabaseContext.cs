@@ -12,7 +12,7 @@ namespace Store_API.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=./StaticFiles/test.db");
+            optionsBuilder.UseSqlite("Filename=~/test.db");
         }
 
         public DbSet<Person> People { get; set; }

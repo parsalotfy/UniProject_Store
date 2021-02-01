@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\test.db" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SharedProject\SharedProject.csproj" />
   </ItemGroup>
 

@@ -48,7 +48,8 @@ namespace Store_API
 
             });*/
 
-            app.UseHttpsRedirection();
+            // https://stackoverflow.com/questions/51385671/failed-to-determine-the-https-port-for-redirect-in-docker
+            //app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 

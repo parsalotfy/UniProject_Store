@@ -23,8 +23,11 @@ COPY --from=build-env /app/out .
 ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 
 # docker build --no-cache -t parsalotfy/store_api -f Dockerfile_API .
+# docker build -t parsalotfy/store_api -f Dockerfile_API.dockerfile .
 # docker run -p 8080:80 --rm -it parsalotfy/store_api sh
 # docker run -p 8080:80 parsalotfy/store_api
+
+# Result : http://localhost:8080/api/people
 
 # for changing port : 
 # https://stackoverflow.com/questions/48669548/why-does-aspnet-core-start-on-port-80-from-within-docker

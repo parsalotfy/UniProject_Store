@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using System.IO;
 
 namespace Store_API
 {
@@ -25,7 +23,8 @@ namespace Store_API
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
-                builder.WithOrigins("https://localhost:5004","http://localhost:5003"));
+                    //builder.WithOrigins("https://localhost:5004","http://localhost:5003", "http://client_container:80"));
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
 
             services.AddControllers();
@@ -38,15 +37,6 @@ namespace Store_API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            /*
-            app.UseFileServer(new FileServerOptions()
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
-                RequestPath = "/StaticFiles"
-
-            });*/
 
             // https://stackoverflow.com/questions/51385671/failed-to-determine-the-https-port-for-redirect-in-docker
             //app.UseHttpsRedirection();

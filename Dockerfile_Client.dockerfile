@@ -32,12 +32,12 @@ COPY --from=build-env /app/out/wwwroot .
 # -----------------------------------
 
 # For debugging :
-# docker run -p 8081:80 --rm -it parsalotfy/store_client sh
+# docker run -p 80:80 --rm -it parsalotfy/store_client sh
 
 # For just run client itself
-# docker run -p 8081:80 --rm parsalotfy/store_client
+# docker run -p 80:80 --rm parsalotfy/store_client
 
-# Result : http://localhost:8081/
+# Result : http://localhost/
 
 # for changing port : 
 # https://stackoverflow.com/questions/48669548/why-does-aspnet-core-start-on-port-80-from-within-docker
@@ -47,6 +47,6 @@ COPY --from=build-env /app/out/wwwroot .
 # -----------------------------------
 
 # Run client inside that network
-# docker run -p 8081:80 --rm --name client_container --network store_network parsalotfy/store_client
+# docker run -p 80:80 --rm --name client_container --network store_network parsalotfy/store_client
 
 

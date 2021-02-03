@@ -16,7 +16,7 @@ RUN dotnet publish ./Store_API -c Release -o out
 # Generate runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 COPY --from=build-env /app/out .
 
 # RUN
@@ -34,10 +34,10 @@ ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 # -----------------------------------
 
 # For debugging :
-# docker run -p 8080:80 --rm -it parsalotfy/store_api sh
+# docker run -p 8080:8080 --rm -it parsalotfy/store_api sh
 
 # For just run api itself
-# docker run -p 8080:80 parsalotfy/store_api
+# docker run -p 8080:8080 parsalotfy/store_api
 
 # Result : http://localhost:8080/api/people
 
@@ -52,7 +52,7 @@ ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 # docker network create store_network
 
 # Run api inside that network
-# docker run -p 8080:80 --rm --name api_container --network store_network parsalotfy/store_api
+# docker run -p 8080:8080 --rm --name api_container --network store_network parsalotfy/store_api
 
 # Test api in a alpine container : 
 # docker run --rm -it --network store_network  alpine sh

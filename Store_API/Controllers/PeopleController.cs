@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SharedProject;
 using Store_API.Models;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,44 +13,67 @@ namespace Store_API.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        // GET: api/<PeopleController>
+        private DatabaseContext context = new DatabaseContext();
+
+        // GET: api/people
         [HttpGet]
-        public IEnumerable<Person> Get()
+        public ActionResult<IEnumerable<Person>> GetAllPeople()
         {
-            DatabaseContext context = new DatabaseContext();
             List<Person> people = context.People.ToList();
-            return people;
+            return Ok(people);
         }
 
 
-
-
-
-
-
-        // GET api/<PeopleController>/5
+        // GET: api/people/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<IEnumerable<Person>> GetPersonById(int id)
         {
-            return "value";
+            Person person = context.People.First(p => p.Age == id);
+            return Ok(person);
         }
 
-        // POST api/<PeopleController>
+
+        //POST api/people
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult PostNewPerson([FromBody] Person person)
         {
+            context.People.Add(person);
+            context.SaveChanges();
+            return Created("Database", person);
         }
 
-        // PUT api/<PeopleController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        // PUT api/people
+        [HttpPut]
+        public ActionResult UpdatePerson([FromBody] Person person)
         {
+            context.People.Update(person);
+            context.SaveChanges();
+            return Accepted("Database");
         }
 
-        // DELETE api/<PeopleController>/5
+        
+        // DELETE api/people/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult DeletePerson(int id)
         {
+            Person person = context.People.First(p => p.Id == id);
+            context.People.Remove(person);
+            context.SaveChanges();
+            return NoContent();
         }
+
+
+        // DELETE api/people
+        [HttpDelete]
+        public ActionResult DeleteAll()
+        {
+            context.People.RemoveRange(context.People);
+            context.SaveChanges();
+            return NoContent();
+        }
+
+
+
     }
 }

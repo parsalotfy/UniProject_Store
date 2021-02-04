@@ -54,6 +54,9 @@ ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 # Run api inside that network
 # docker run -p 8080:8080 --rm --name api_container --network store_network parsalotfy/store_api
 
+# Run Without network :
+# docker run -p 8080:8080 --rm --name api_container parsalotfy/store_api
+
 # Test api in a alpine container : 
 # docker run --rm -it --network store_network  alpine sh
 # wget http://api_container/api/people

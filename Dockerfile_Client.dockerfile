@@ -49,4 +49,6 @@ COPY --from=build-env /app/out/wwwroot .
 # Run client inside that network
 # docker run -p 80:80 --rm --name client_container --network store_network parsalotfy/store_client
 
+# Run Without a network
+# docker run -p 80:80 --rm --name client_container parsalotfy/store_client
 

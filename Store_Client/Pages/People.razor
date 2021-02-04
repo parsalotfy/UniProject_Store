@@ -1,8 +1,44 @@
 ﻿@page "/people"
 @inject HttpClient Http
 @using SharedProject;
-
 <h3>People</h3>
+
+<EditForm Model="@person" OnValidSubmit="@AddPerson">
+    <DataAnnotationsValidator />
+
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Id : </label>
+        <InputNumber class="form-control col-3" @bind-Value="person.Id" placeholder="id" />
+        &nbsp;<ValidationMessage For="@(() => person.Id)" />
+    </div>
+    <br />
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Name : </label>
+        <InputText class="form-control col-3" @bind-Value="person.Name" placeholder="name" />
+        &nbsp;<ValidationMessage For="@(() => person.Name)" />
+    </div>
+    <br />
+    <br />
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Age : </label>
+        <InputNumber class="form-control col-3" @bind-Value="person.Age" placeholder="age" />
+        &nbsp;<ValidationMessage For="@(() => person.Age)" />
+    </div>
+    <br />
+    <div class="col-12 row">
+        <span class="col-1"></span>
+        <input type="submit" class="form-control col-2 btn btn-primary text-center" value="Add" />
+        <span class="col-1"></span>
+        <input type="submit" class="form-control col-2 btn btn-primary text-center" value="Add" />
+    </div>
+</EditForm>
+
+<br />
+<br />
+
+
+
+
 
 @if (people == null)
 {
@@ -10,6 +46,7 @@
 }
 else
 {
+
     <table class="table">
         <thead>
             <tr>
@@ -19,12 +56,12 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (Person person in people)
+            @foreach (Person p in people)
             {
                 <tr>
-                    <td>@person.Id</td>
-                    <td>@person.Name</td>
-                    <td>@person.Age</td>
+                    <td>@p.Id</td>
+                    <td>@p.Name</td>
+                    <td>@p.Age</td>
                 </tr>
             }
         </tbody>
@@ -32,11 +69,30 @@ else
 }
 
 @code {
-    private List<Person> people;
 
-        protected override async Task OnInitializedAsync()
-        {            
-            people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
-        }
+    public List<Person> people;
+    public Person person = new Person();
+
+    // GET
+    protected override async Task OnInitializedAsync()
+    {
+        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+    }
+
+    // POST
+    private void AddPerson()
+    {
+        Task<HttpResponseMessage> httpResponse = Http.PostAsJsonAsync<Person>("http://localhost:8080/api/people", person);        
+        people.Add(person);
+    }
+
+    //PUT
+
+
+    //DELETE
+
+
+    //DELETE
+
 
 }

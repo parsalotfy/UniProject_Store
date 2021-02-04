@@ -23,7 +23,7 @@ namespace Store_API
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
-                    //builder.WithOrigins("https://localhost:5004","http://localhost:5003", "http://client_container:80"));
+                    //builder.WithOrigins("http://localhost:80"));
                     builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
 

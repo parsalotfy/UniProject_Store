@@ -22,7 +22,7 @@ namespace Store_API
                 {
                     webBuilder.UseStartup<Startup>();
                     //webBuilder.UseUrls("https://*:8081","http://*:8080");
-                    //webBuilder.UseUrls("http://*:8080");
+                    webBuilder.UseUrls("http://*:8080");
                 });
     }
 }

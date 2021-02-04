@@ -17,7 +17,7 @@ namespace Store_API.Controllers
 
         // GET: api/people
         [HttpGet]
-        public ActionResult<IEnumerable<Person>> GetAllPeople()
+        public ActionResult<IEnumerable<Person>> GetPeople()
         {
             List<Person> people = context.People.ToList();
             return Ok(people);
@@ -26,7 +26,7 @@ namespace Store_API.Controllers
 
         // GET: api/people/5
         [HttpGet("{id}")]
-        public ActionResult<IEnumerable<Person>> GetPersonById(int id)
+        public ActionResult<IEnumerable<Person>> GetPerson(int id)
         {
             Person person = context.People.First(p => p.Age == id);
             return Ok(person);
@@ -35,7 +35,7 @@ namespace Store_API.Controllers
 
         //POST api/people
         [HttpPost]
-        public ActionResult PostNewPerson([FromBody] Person person)
+        public ActionResult PostPerson([FromBody] Person person)
         {
             context.People.Add(person);
             context.SaveChanges();
@@ -66,7 +66,7 @@ namespace Store_API.Controllers
 
         // DELETE api/people
         [HttpDelete]
-        public ActionResult DeleteAll()
+        public ActionResult DeletePeople()
         {
             context.People.RemoveRange(context.People);
             context.SaveChanges();

@@ -35,12 +35,8 @@ else
     private List<Person> people;
 
         protected override async Task OnInitializedAsync()
-        {
-            // in Debugging
-            //people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
-
-            // in Publish in Docker
-            people = await Http.GetFromJsonAsync<List<Person>>("http://api_container/api/people");
+        {            
+            people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
         }
 
 }

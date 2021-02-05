@@ -16,6 +16,7 @@ RUN dotnet publish ./Store_API -c Release -o out
 # Generate runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine
 WORKDIR /app
+ENV ASPNETCORE_URLS="http://localhost:8080"
 EXPOSE 8080
 COPY --from=build-env /app/out .
 

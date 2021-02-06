@@ -5,7 +5,6 @@
 
 <EditForm Model="@person">
 
-
     <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
         <tbody>
             <tr>
@@ -69,97 +68,9 @@
         </tbody>
     </table>
 
-
-
-
-
-    @*<div class="col-12 row">
-            <label class="col-2 font-weight-bold">Id : </label>
-            <InputNumber class="form-control col-3" @bind-Value="person.Id" placeholder="id" />
-        </div>
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">Name : </label>
-            <InputText class="form-control col-3" @bind-Value="person.Name" placeholder="name" />
-        </div>
-        <br />
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">Age : </label>
-            <InputNumber class="form-control col-3" @bind-Value="person.Age" placeholder="age" />
-        </div>
-        <br />*@
-
-    @*<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
-            <tbody>
-                <tr>
-                    <td class="dcf-txt-center">
-                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@AddPerson" value="Add" />
-                    </td>
-                    <td class="dcf-txt-center">
-                        <input type="submit" class="form-control btn btn-primary text-center" @onclick="@UpdatePerson" value="Update" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="dcf-txt-center">
-                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeletePerson" value="Delete by ID" />
-                    </td>
-                    <td class="dcf-txt-center">
-                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>*@
-
-
-    @*<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
-        <tbody>
-            <tr>
-                <td class="dcf-txt-center">
-                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@AddPerson" value="Add" />
-                </td>
-                <td class="dcf-txt-center">
-                    @add_Status
-                </td>
-            </tr>
-            <tr>
-                <td class="dcf-txt-center">
-                    <input type="submit" class="form-control btn btn-primary text-center" @onclick="@UpdatePerson" value="Update" />
-                </td>
-                <td class="dcf-txt-center">
-                    @update_Status
-                </td>
-            </tr>
-            <tr>
-                <td class="dcf-txt-center">
-                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeletePerson" value="Delete by ID" />
-                </td>
-                <td class="dcf-txt-center">
-                    @delete_Status
-                </td>
-            </tr>
-            <tr>
-                <td class="dcf-txt-center">
-                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
-                </td>
-                <td class="dcf-txt-center">
-                    @deleteall_Status
-                </td>
-            </tr>
-        </tbody>
-    </table>*@
-
-    
-    @*<input type="submit" class="form-control  btn btn-primary text-center" @onclick="@Refresh" value="Refresh Page" />*@
-
-
 </EditForm>
 
 <br />
-<br />
-
-
-
 
 
 @if (people == null)

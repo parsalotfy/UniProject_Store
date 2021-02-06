@@ -62,7 +62,7 @@ ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 # docker run --rm -it --network store_network  alpine sh
 # wget http://api_container/api/people
 
-
+# docker push parsalotfy/store_api 
 
 
 

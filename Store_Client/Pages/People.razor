@@ -4,31 +4,49 @@
 <h3>People</h3>
 
 <EditForm Model="@person">
-    <div class="col-12 row">
-        <label class="col-2 font-weight-bold">Id : </label>
-        <InputNumber class="form-control col-3" @bind-Value="person.Id" placeholder="id" />
-    </div>
-    <br />
-    <div class="col-12 row">
-        <label class="col-2 font-weight-bold">Name : </label>
-        <InputText class="form-control col-3" @bind-Value="person.Name" placeholder="name" />
-    </div>
-    <br />
-    <br />
-    <div class="col-12 row">
-        <label class="col-2 font-weight-bold">Age : </label>
-        <InputNumber class="form-control col-3" @bind-Value="person.Age" placeholder="age" />
-    </div>
-    <br />
+
 
     <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
         <tbody>
             <tr>
                 <td class="dcf-txt-center">
+                    <label>Id : </label>
+                </td>
+                <td class="dcf-txt-center">
+                    <InputNumber @bind-Value="person.Id" placeholder="id" />
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <label>Name : </label>
+                </td>
+                <td class="dcf-txt-center">
+                    <InputText @bind-Value="person.Name" placeholder="name" />
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <label>Age : </label>
+                </td>
+                <td class="dcf-txt-center">
+                    <InputNumber @bind-Value="person.Age" placeholder="age" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="dcf-txt-center">
                     <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@AddPerson" value="Add" />
                 </td>
                 <td class="dcf-txt-center">
+                    @add_Status
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
                     <input type="submit" class="form-control btn btn-primary text-center" @onclick="@UpdatePerson" value="Update" />
+                </td>
+                <td class="dcf-txt-center">
+                    @update_Status
                 </td>
             </tr>
             <tr>
@@ -36,14 +54,103 @@
                     <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeletePerson" value="Delete by ID" />
                 </td>
                 <td class="dcf-txt-center">
-                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
+                    @delete_Status
                 </td>
             </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
+                </td>
+                <td class="dcf-txt-center">
+                    @deleteall_Status
+                </td>
+            </tr>
+
         </tbody>
     </table>
 
-    <br /><br />
-    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@Refresh" value="Refresh Page" />
+
+
+
+
+    @*<div class="col-12 row">
+            <label class="col-2 font-weight-bold">Id : </label>
+            <InputNumber class="form-control col-3" @bind-Value="person.Id" placeholder="id" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Name : </label>
+            <InputText class="form-control col-3" @bind-Value="person.Name" placeholder="name" />
+        </div>
+        <br />
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Age : </label>
+            <InputNumber class="form-control col-3" @bind-Value="person.Age" placeholder="age" />
+        </div>
+        <br />*@
+
+    @*<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
+            <tbody>
+                <tr>
+                    <td class="dcf-txt-center">
+                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@AddPerson" value="Add" />
+                    </td>
+                    <td class="dcf-txt-center">
+                        <input type="submit" class="form-control btn btn-primary text-center" @onclick="@UpdatePerson" value="Update" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="dcf-txt-center">
+                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeletePerson" value="Delete by ID" />
+                    </td>
+                    <td class="dcf-txt-center">
+                        <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>*@
+
+
+    @*<table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
+        <tbody>
+            <tr>
+                <td class="dcf-txt-center">
+                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@AddPerson" value="Add" />
+                </td>
+                <td class="dcf-txt-center">
+                    @add_Status
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <input type="submit" class="form-control btn btn-primary text-center" @onclick="@UpdatePerson" value="Update" />
+                </td>
+                <td class="dcf-txt-center">
+                    @update_Status
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeletePerson" value="Delete by ID" />
+                </td>
+                <td class="dcf-txt-center">
+                    @delete_Status
+                </td>
+            </tr>
+            <tr>
+                <td class="dcf-txt-center">
+                    <input type="submit" class="form-control  btn btn-primary text-center" @onclick="@DeleteAll" value="Clear Database" />
+                </td>
+                <td class="dcf-txt-center">
+                    @deleteall_Status
+                </td>
+            </tr>
+        </tbody>
+    </table>*@
+
+    
+    @*<input type="submit" class="form-control  btn btn-primary text-center" @onclick="@Refresh" value="Refresh Page" />*@
 
 
 </EditForm>
@@ -85,8 +192,13 @@ else
 
 @code {
 
-    public List<Person> people;
+    public List<Person> people = new List<Person>();
     public Person person = new Person();
+
+    public string add_Status = string.Empty;
+    public string update_Status = string.Empty;
+    public string delete_Status = string.Empty;
+    public string deleteall_Status = string.Empty;
 
 
     // GET
@@ -97,52 +209,56 @@ else
 
 
     // POST
-    private async void AddPerson()
+    private async Task AddPerson()
     {
+        add_Status = "Adding...";
         HttpResponseMessage httpResponse = await Http.PostAsJsonAsync<Person>("https://parsalotfy.ir/api/people", person);
 
-        // should be done offline with API response check
         people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
-        StateHasChanged();
+
+        add_Status = string.Empty;
+        person = new Person();
+
     }
 
 
 
     //PUT
-    private async void UpdatePerson()
+    private async Task UpdatePerson()
     {
+        update_Status = "Updating...";
         HttpResponseMessage httpResponse = await Http.PutAsJsonAsync<Person>("https://parsalotfy.ir/api/people", person);
 
-        // should be done offline with API response check
         people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
-        StateHasChanged();
+
+        update_Status = string.Empty;
+        person = new Person();
     }
 
 
     //DELETE Person
-    private async void DeletePerson()
+    private async Task DeletePerson()
     {
+        delete_Status = "Deleting...";
         HttpResponseMessage httpResponse = await Http.DeleteAsync("https://parsalotfy.ir/api/people/" + person.Id);
 
-        // should be done offline with API response check
         people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
-        StateHasChanged();
+
+        delete_Status = string.Empty;
+        person = new Person();
     }
 
 
     //DELETE All
-    private async void DeleteAll()
+    private async Task DeleteAll()
     {
+        deleteall_Status = "Deleting all Records...";
         HttpResponseMessage httpResponse = await Http.DeleteAsync("https://parsalotfy.ir/api/people");
 
-        // should be done offline with API response check
         people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
-        StateHasChanged();
-    }
 
-    private void Refresh()
-    {
-        StateHasChanged();
+        deleteall_Status = string.Empty;
+        person = new Person();
     }
 
 

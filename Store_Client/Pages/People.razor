@@ -92,17 +92,17 @@ else
     // GET
     protected override async Task OnInitializedAsync()
     {
-        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+        people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
     }
 
 
     // POST
     private async void AddPerson()
     {
-        HttpResponseMessage httpResponse = await Http.PostAsJsonAsync<Person>("http://localhost:8080/api/people", person);
+        HttpResponseMessage httpResponse = await Http.PostAsJsonAsync<Person>("https://parsalotfy.ir/api/people", person);
 
         // should be done offline with API response check
-        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+        people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
         StateHasChanged();
     }
 
@@ -111,10 +111,10 @@ else
     //PUT
     private async void UpdatePerson()
     {
-        HttpResponseMessage httpResponse = await Http.PutAsJsonAsync<Person>("http://localhost:8080/api/people", person);
+        HttpResponseMessage httpResponse = await Http.PutAsJsonAsync<Person>("https://parsalotfy.ir/api/people", person);
 
         // should be done offline with API response check
-        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+        people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
         StateHasChanged();
     }
 
@@ -122,10 +122,10 @@ else
     //DELETE Person
     private async void DeletePerson()
     {
-        HttpResponseMessage httpResponse = await Http.DeleteAsync("http://localhost:8080/api/people/" + person.Id);
+        HttpResponseMessage httpResponse = await Http.DeleteAsync("https://parsalotfy.ir/api/people/" + person.Id);
 
         // should be done offline with API response check
-        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+        people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
         StateHasChanged();
     }
 
@@ -133,10 +133,10 @@ else
     //DELETE All
     private async void DeleteAll()
     {
-        HttpResponseMessage httpResponse = await Http.DeleteAsync("http://localhost:8080/api/people");
+        HttpResponseMessage httpResponse = await Http.DeleteAsync("https://parsalotfy.ir/api/people");
 
         // should be done offline with API response check
-        people = await Http.GetFromJsonAsync<List<Person>>("http://localhost:8080/api/people");
+        people = await Http.GetFromJsonAsync<List<Person>>("https://parsalotfy.ir/api/people");
         StateHasChanged();
     }
 

@@ -27,7 +27,7 @@ namespace Store_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<Person>> GetPerson(int id)
         {
-            Person person = context.People.First(p => p.Age == id);
+            Person person = context.People.First(p => p.Id == id);
             return Ok(person);
         }
 

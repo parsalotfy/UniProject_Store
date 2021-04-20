@@ -57,7 +57,7 @@ ENTRYPOINT [ "dotnet", "Store_API.dll" ]
 
 # Run Without network :
 # first port is host machine port and second one is container port
-# docker run -d -p 8080:8080 --rm --name api_container parsalotfy/store_api
+# docker run -d -p 8081:8080 --rm --name api_container parsalotfy/store_api
 
 # Test api in a alpine container : 
 # docker run --rm -it --network store_network  alpine sh

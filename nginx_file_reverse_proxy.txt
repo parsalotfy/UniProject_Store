@@ -1,0 +1,54 @@
+
+server {
+        listen 157.90.123.45:443 ssl;
+        listen [::]:443 ssl;
+        ssl on;
+
+        #Commented by Parsa
+        #root /var/www/parsa;
+        #index index.html index.php;
+        server_name parsalotfy.ir;
+
+        #API Location added by Parsa
+        location /api/ {
+        #Commented by Parsa
+        #try_files $uri $uri/ =404;
+
+
+        # Added By Parsa
+        proxy_set_header        Host                    $host;
+        proxy_set_header        X-Real-IP               $remote_addr;
+        proxy_set_header        X-Forwarded-For         $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto       https;
+        proxy_pass http://localhost:8081;
+
+        }
+
+        #Client Location by Parsa
+        location / {
+        #Commented by Parsa
+        #try_files $uri $uri/ =404;
+
+
+        # Added By Parsa
+        proxy_set_header        Host                    $host;
+        proxy_set_header        X-Real-IP               $remote_addr;
+        proxy_set_header        X-Forwarded-For         $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto       https;
+        proxy_pass http://localhost:8082;
+
+        }
+    ssl_certificate /etc/letsencrypt/live/parsalotfy.ir/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/parsalotfy.ir/privkey.pem; # managed by Certbot
+
+
+}
+server {
+        listen 157.90.123.45:443 ssl;
+        listen [::]:443 ssl;
+        server_name www.parsalotfy.ir;
+        return 301 https://parsalotfy.ir;
+    ssl_certificate /etc/letsencrypt/live/parsalotfy.ir/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/parsalotfy.ir/privkey.pem; # managed by Certbot
+
+}

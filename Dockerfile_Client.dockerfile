@@ -50,6 +50,6 @@ COPY --from=build-env /app/out/wwwroot .
 # docker run -p 8081:80 --rm --name client_container --network store_network parsalotfy/store_client
 
 # Run Without a network
-# docker run -p 8081:80 --rm --name client_container parsalotfy/store_client
+# docker run -d -p 8082:80 --rm --name client_container parsalotfy/store_client
 
 # docker push parsalotfy/store_api 

@@ -23,8 +23,7 @@ COPY --from=build-env /app/out/wwwroot .
 # ----------- Build -----------------
 # -----------------------------------
 
-# docker build --no-cache -t parsalotfy/store_client -f Dockerfile_Client.dockerfile.
-# docker build -t parsalotfy/store_client -f Dockerfile_Client.dockerfile .
+# docker build --no-cache -t parsalotfy/store_client -f Dockerfile_Client.dockerfile .
 
 
 # -----------------------------------

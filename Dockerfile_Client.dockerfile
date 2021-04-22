@@ -51,4 +51,8 @@ COPY --from=build-env /app/out/wwwroot .
 # Run Without a network
 # docker run -d -p 8082:80 --rm --name client_container parsalotfy/store_client
 
-# docker push parsalotfy/store_api 
+# To push image to dockerhub :
+# docker push parsalotfy/store_client
+
+# to go into a running countainer :
+# docker exec -it <container name> sh

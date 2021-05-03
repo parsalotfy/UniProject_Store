@@ -1,0 +1,43 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "9szTWr",
+    "name": "Get_All",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "s3TP4d"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "7gncri"
+          },
+          "method": "GET",
+          "url": "https://parsalotfy.ir/api/people",
+          "resultProperty": "dialog.people_result",
+          "contentType": "json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "DLc7Hf"
+          },
+          "activity": "${SendActivity_DLc7Hf()}"
+        }
+      ]
+    }
+  ],
+  "generator": "Get_All.lg",
+  "recognizer": "Get_All.lu.qna",
+  "id": "Get_All"
+}

@@ -1,0 +1,27 @@
+[import](common.lg)
+
+# NumberInput_Prompt_hQyn7u()
+[Activity
+    Text = Update Person : Give me the ID of that person?
+]
+
+# TextInput_Prompt_zzreXD()
+[Activity
+    Text = Tell me the new name (or just send current name, if you want it to be unchanged)
+]
+
+# NumberInput_Prompt_cUmNit()
+[Activity
+    Text = Tell me the new age (or just send current age, if you want it to be unchanged)
+]
+
+# SendActivity_76oT56()
+- ```Here it is :
+    - ID : ${dialog.person_id}
+    - Name : ${dialog.person_result.content.name} 
+    - Age : ${dialog.person_result.content.age}
+```
+# SendActivity_UaQZlJ()
+[Activity
+    Text = Updated.
+]

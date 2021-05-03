@@ -1,0 +1,46 @@
+[import](common.lg)
+
+# SendActivity_Welcome
+- ${WelcomeUser()}
+
+
+# SendActivity_z0SZW6()
+[Activity
+    Text = Welcome!
+]
+
+# SendActivity_w20VSM()
+[Activity
+    Text = Welcome!
+]
+
+# SendActivity_MVrMU4()
+[Activity
+    Text = Welcome
+]
+
+# SendActivity_jwRsYq()
+[Activity
+    Text = hi
+]
+
+# SendActivity_jpkvh4()
+[Activity
+    Text = salan
+]
+
+
+# SendActivity_XlELgj()
+[Activity
+    Text = hi
+]
+
+# SendActivity_R5SLgM()
+[Activity
+    Text = hi
+]
+
+# SendActivity_gsv3cv()
+[Activity
+    Text = Welcome!
+]

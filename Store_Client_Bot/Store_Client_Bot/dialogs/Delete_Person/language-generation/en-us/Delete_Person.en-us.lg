@@ -1,0 +1,27 @@
+[import](common.lg)
+
+# NumberInput_Prompt_fNhqNr()
+[Activity
+    Text = Delete Person : Give me the ID of thet person?
+]
+
+# SendActivity_dhr9nY()
+- ```Here it is :
+    - ID : ${dialog.person_id}
+    - Name : ${dialog.person_result.content.name} 
+    - Age : ${dialog.person_result.content.age}
+```
+# SendActivity_6nmTYl()
+[Activity
+    Text = Deleted.
+]
+
+# SendActivity_S7Wetj()
+[Activity
+    Text = Cancled.
+]
+
+# ConfirmInput_Prompt_xydLW9()
+[Activity
+    Text = Are you sure?
+]

@@ -1,0 +1,40 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "$designer": {
+      "name": "Store_Client_Bot",
+      "description": "",
+      "id": "mtLIeE"
+    }
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "id": "sgonFr"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "gsv3cv"
+          },
+          "activity": "${SendActivity_gsv3cv()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "r2Qnge"
+          },
+          "activityProcessed": true,
+          "dialog": "Start_Instruction"
+        }
+      ]
+    }
+  ],
+  "id": "Store_Client_Bot",
+  "generator": "Store_Client_Bot.lg",
+  "recognizer": "Store_Client_Bot.lu.qna"
+}

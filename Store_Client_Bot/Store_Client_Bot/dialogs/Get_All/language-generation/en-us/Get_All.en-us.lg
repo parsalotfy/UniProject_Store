@@ -1,0 +1,14 @@
+[import](common.lg)
+
+# ShowPerson(p)
+- ```
+    - ${p.id} , ${p.name} , ${p.age}
+```
+
+
+# ShowPeople
+- ```People:
+    ${join(select(dialog.people_result.content, x => ShowPerson(x)), '\n')}
+```
+# SendActivity_DLc7Hf()
+- ${ShowPeople()}

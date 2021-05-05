@@ -33,6 +33,12 @@
             "id": "DLc7Hf"
           },
           "activity": "${SendActivity_DLc7Hf()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "ayDDWS"
+          }
         }
       ]
     }

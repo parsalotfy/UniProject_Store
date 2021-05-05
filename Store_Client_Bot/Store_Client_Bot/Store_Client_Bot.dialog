@@ -13,28 +13,80 @@
     {
       "$kind": "Microsoft.OnBeginDialog",
       "$designer": {
-        "id": "sgonFr"
+        "id": "JhvxHv"
       },
       "actions": [
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "gsv3cv"
+            "id": "2yTa1c"
           },
-          "activity": "${SendActivity_gsv3cv()}"
+          "activity": "${SendActivity_2yTa1c()}"
         },
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "r2Qnge"
+            "id": "LFwH32"
           },
           "activityProcessed": true,
           "dialog": "Start_Instruction"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "Mek1xp",
+        "name": "Cancel-Stop"
+      },
+      "intent": "Cancel-Stop",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Zw1Hdi"
+          },
+          "activity": "${SendActivity_Zw1Hdi()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "2hh2vv"
+          }
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "ahGJny",
+        "name": "Start-Restart"
+      },
+      "intent": "Start-Restart",
+      "actions": [
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "LZLD2d"
+          },
+          "activityProcessed": true
         }
       ]
     }
   ],
   "id": "Store_Client_Bot",
   "generator": "Store_Client_Bot.lg",
-  "recognizer": "Store_Client_Bot.lu.qna"
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": [
+      {
+        "intent": "Cancel-Stop",
+        "pattern": "Cancel|cancel|Stop|stop"
+      },
+      {
+        "intent": "Start-Restart",
+        "pattern": "Start|start|Restart|restart"
+      }
+    ]
+  }
 }

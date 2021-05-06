@@ -7,8 +7,8 @@ COPY ./Store_API ./Store_API
 COPY ./SharedProject ./SharedProject
 
 # Restore any dependencies
-RUN dotnet restore ./SharedProject
-RUN dotnet restore ./Store_API
+# RUN dotnet restore ./SharedProject
+# RUN dotnet restore ./Store_API
 
 # Build our release
 RUN dotnet publish ./Store_API -c Release -o out

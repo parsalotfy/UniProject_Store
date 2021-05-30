@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
 WORKDIR /app
 
 # Copy project files
-COPY ./Store_API ./Store_API
-COPY ./SharedProject ./SharedProject
+COPY ../Store_API ./Store_API
+COPY ../SharedProject ./SharedProject
 
 # Restore any dependencies
 #RUN dotnet restore ./SharedProject

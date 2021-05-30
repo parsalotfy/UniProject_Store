@@ -1,3 +1,8 @@
+# to test nginx file if it has syntax error or not
+# sudo nginx -t
+
+# to reload nginx after changes
+# sudo systemctl reload nginx
 
 server {
         listen 157.90.123.45:443 ssl;

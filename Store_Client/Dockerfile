@@ -6,10 +6,6 @@ WORKDIR /app
 COPY ./Store_Client ./Store_Client
 COPY ./SharedProject ./SharedProject
 
-# Restore any dependencies
-#RUN dotnet restore ./SharedProject
-#RUN dotnet restore ./Store_Client
-
 # Build our release
 RUN dotnet publish ./Store_Client -c Release -o out
 

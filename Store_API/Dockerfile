@@ -3,12 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
 WORKDIR /app
 
 # Copy project files
-COPY ../Store_API ./Store_API
-COPY ../SharedProject ./SharedProject
-
-# Restore any dependencies
-#RUN dotnet restore ./SharedProject
-#RUN dotnet restore ./Store_API
+COPY ./Store_API ./Store_API
+COPY ./SharedProject ./SharedProject
 
 # Build our release
 RUN dotnet publish ./Store_API -c Release -o out
@@ -16,8 +12,6 @@ RUN dotnet publish ./Store_API -c Release -o out
 # Generate runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine
 WORKDIR /app
-#ENV ASPNETCORE_URLS="http://localhost:8080"
-#EXPOSE 8080
 COPY --from=build-env /app/out .
 
 # RUN

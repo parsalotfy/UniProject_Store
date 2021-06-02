@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using SharedProject;
@@ -18,20 +18,22 @@ namespace Store_API.Controllers
         {
             _context = context;
         }
+      
+        
         // GET: api/people
         [HttpGet]
         public ActionResult<IEnumerable<Person>> GetPeople()
         {
-            List<Person> people = context.People.ToList();
+            List<Person> people = _context.People.ToList();
             return Ok(people);
         }
 
-
+        
         // GET: api/people/5
         [HttpGet("{id}")]
         public ActionResult<IEnumerable<Person>> GetPerson(int id)
         {
-            Person person = context.People.First(p => p.Id == id);
+            Person person = _context.People.First(p => p.Id == id);
             return Ok(person);
         }
 
@@ -40,8 +42,8 @@ namespace Store_API.Controllers
         [HttpPost]
         public ActionResult PostPerson([FromBody] Person person)
         {
-            context.People.Add(person);
-            context.SaveChanges();
+            _context.People.Add(person);
+            _context.SaveChanges();
             return Created("Database", person);
         }
 
@@ -50,8 +52,8 @@ namespace Store_API.Controllers
         [HttpPut]
         public ActionResult UpdatePerson([FromBody] Person person)
         {
-            context.People.Update(person);
-            context.SaveChanges();
+            _context.People.Update(person);
+            _context.SaveChanges();
             return Accepted("Database");
         }
 
@@ -60,9 +62,9 @@ namespace Store_API.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeletePerson(int id)
         {
-            Person person = context.People.First(p => p.Id == id);
-            context.People.Remove(person);
-            context.SaveChanges();
+            Person person = _context.People.First(p => p.Id == id);
+            _context.People.Remove(person);
+            _context.SaveChanges();
             return NoContent();
         }
 
@@ -71,11 +73,10 @@ namespace Store_API.Controllers
         [HttpDelete]
         public ActionResult DeletePeople()
         {
-            context.People.RemoveRange(context.People);
-            context.SaveChanges();
+            _context.People.RemoveRange(_context.People);
+            _context.SaveChanges();
             return NoContent();
         }
-
 
 
     }

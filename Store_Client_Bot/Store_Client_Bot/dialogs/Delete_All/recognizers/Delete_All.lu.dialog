@@ -1,5 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_Delete_All",
-  "recognizers": {}
-}

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using SharedProject;
@@ -12,8 +12,12 @@ namespace Store_API.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        private DatabaseContext context = new DatabaseContext();
+        private readonly StoreContext _context;
 
+        public PeopleController(StoreContext context)
+        {
+            _context = context;
+        }
         // GET: api/people
         [HttpGet]
         public ActionResult<IEnumerable<Person>> GetPeople()
